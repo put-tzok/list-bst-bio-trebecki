@@ -17,22 +17,45 @@ struct node *head = NULL;
 
 
 struct node* list_insert(int value) {
+    
+    head=value;
+    
     // TODO: implement
     return NULL;
 }
 
 struct node* list_search(int value) {
+    while (head=!value)
+     head = head -> next;
+     if(head==NULL)
+       cout<<"lista pusta"<<endl;
+     else
+         cout<<node::key<<endl:
     // TODO: implement
     return NULL;
 }
 
 void list_delete(int value) {
+    if (head == NULL)
+        cout<<"lista pusta"<<endl;
+    else{
+     while(head -> next!=value)
+       head = head -> next;
+        if(head -> next -> next==NULL)
+            head->next=NULL;
+        else
+            head->next=head->next->next;
+             }
     // TODO: implement
 }
 
 unsigned int list_size() {
+    int size=0;
+    while(head!=0){
+        head=head->next;
+        size++;}
     // TODO: implement
-    return 0;
+     return size;
 }
 
 /*
