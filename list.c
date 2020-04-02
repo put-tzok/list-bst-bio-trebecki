@@ -51,7 +51,7 @@ void list_delete(int value) {
 
 unsigned int list_size() {
     int size=0;
-    while(head!=0){
+    while(head!=NULL){
         head=head->next;
         size++;}
     // TODO: implement
