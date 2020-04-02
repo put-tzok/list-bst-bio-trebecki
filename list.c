@@ -18,42 +18,58 @@ struct node *head = NULL;
 
 struct node* list_insert(int value) {
     
-    head=value;
+    head=createNode (key=value, next=head);
+    
+
+    
     
     // TODO: implement
     return NULL;
 }
 
 struct node* list_search(int value) {
-    while (head=!value)
-     head = head -> next;
-     if(head==NULL)
+    iter=head;
+    if(iter==NULL)
        cout<<"lista pusta"<<endl;
-     else
-         cout<<node::key<<endl:
+    else
+    {
+    while (iter.key=!value)
+    {
+     iter = iter -> next;
+     
+    }
+        
     // TODO: implement
-    return NULL;
-}
+    return iter.key;
+    }
 
 void list_delete(int value) {
-    if (head == NULL)
-        cout<<"lista pusta"<<endl;
+    
+    if (head == value)
+        head=head->next;
     else{
-     while(head -> next!=value)
-       head = head -> next;
-        if(head -> next -> next==NULL)
-            head->next=NULL;
-        else
-            head->next=head->next->next;
+     prev=head;
+     iter=head->next;
+        
+     while(iter!=NULL && iter!=value)
+     {
+       prev=iter;
+       iter=iter->next;
+        if(iter!=NULL)
+            prev->next=iter->next;
              }
     // TODO: implement
 }
 
 unsigned int list_size() {
     int size=0;
-    while(head!=NULL){
-        head=head->next;
-        size++;}
+    int iter=head;
+    while(iter!=NULL)
+    
+    {
+        iter=iter->next;
+        size++;
+    }
     // TODO: implement
      return size;
 }
