@@ -18,11 +18,17 @@ struct node {
 struct node *root = NULL;
 
 struct node **tree_search(struct node **candidate, int value) {
-    // TODO: implement
+    if (value < candite->key)
+        return tree_search(candidate->left, value)
+    else (value < candite->key)
+        return tree_search(candidate->right, value)
+        // TODO: implement
     return NULL;
 }
 
 struct node* tree_insert(int value) {
+    int candidate= tree_search(root, value);
+    int *candidate= createnode(key=value, left=NULL, right=NULL);
     // TODO: implement
     return NULL;
 }
