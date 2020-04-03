@@ -18,34 +18,67 @@ struct node {
 struct node *root = NULL;
 
 struct node **tree_search(struct node **candidate, int value) {
-    if (value < candite->key)
-        return tree_search(candidate->left, value)
-    else (value < candite->key)
-        return tree_search(candidate->right, value)
+    if (value < candite.key)
+        return tree_search(candidate.left, value)
+    else (value < candite.key)
+        return tree_search(candidate.right, value)
         // TODO: implement
     return NULL;
 }
 
 struct node* tree_insert(int value) {
-    int candidate= tree_search(root, value);
-    int *candidate= createnode(key=value, left=NULL, right=NULL);
+    int candidate = tree_search(root, value);
+    int *candidate = createnode(key = value, left = NULL, right = NULL);
     // TODO: implement
     return NULL;
 }
 
 
 
-struct node **tree_maximum(struct node **candidate) {
-    // TODO: implement
-    return NULL;
+struct node **tree_maximum(struct node **candidate)
+{
+    if (candidate.right!=NULL)
+        return tree_maximum(candidate.right);// TODO: implement
+    return candidate;
 }
 
 void tree_delete(int value) {
-    // TODO: implement
+   int candidate=tree_search(root, value);
+      if (candidate.left == NULL && candidate.right == NULL)
+        *candidate = NULL;
+    else if (candidate.left != NULL && candidate.right == NULL)
+        *candidate = candidate->left;
+    else if (candidate.left == NULL && candidate.right != NULL)
+        *candidate = candidate->right;
+    else
+    {
+        maxcandidate = tree_maximum(candidate.left);
+        candidate.key = maxcandidate->key;
+        *maxcandidate = maxcandidate->left;
+    }
+       // TODO: implement
+    
 }
 
 unsigned int tree_size(struct node *element) {
-    // TODO: implement
+    int size = 0;
+    if (element.right == NULL && element.left == NULL)
+        break;
+    else if (element.right == NULL && element.left != NULL)
+    {
+        element = element->left;
+        size++;
+    }
+    else if (element.right != NULL && element.left == NULL)
+    {
+        element = element->right;
+        size++;
+    }
+    else
+    {
+        element = tree_size(element.left);
+        size++;
+    }// TODO: implement
     return 0;
 }
 
@@ -125,7 +158,10 @@ void insert_random(int *t, int n) {
 }
 
 void insert_binary(int *t, int n) {
-    // TODO: implement
+    for (int i = 0; i < n; i++)
+    {
+        
+    }// TODO: implement
 }
 
 char *insert_names[] = { "Increasing", "Random", "Binary" };
