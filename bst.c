@@ -18,17 +18,20 @@ struct node {
 struct node *root = NULL;
 
 struct node **tree_search(struct node **candidate, int value) {
-    if (value < candite.key)
-        return tree_search(candidate.left, value)
-    else (value < candite.key)
-        return tree_search(candidate.right, value)
+    if (value > candite -> key)
+        return tree_search(candidate -> left, value)
+    else (value < candite -> key)
+        return tree_search(candidate -> right, value)
         // TODO: implement
     return NULL;
 }
 
 struct node* tree_insert(int value) {
-    int candidate = tree_search(root, value);
-    int *candidate = createnode(key = value, left = NULL, right = NULL);
+    struct node *candidate = tree_search(&root, value);
+    struct node *candidate = (struct node *) malloc( sizeof(struct node) );
+    candidate -> key = value;
+    candidate -> left = NULL;
+    candidate -> right = NULL;
     // TODO: implement
     return NULL;
 }
@@ -37,24 +40,24 @@ struct node* tree_insert(int value) {
 
 struct node **tree_maximum(struct node **candidate)
 {
-    if (candidate.right!=NULL)
-        return tree_maximum(candidate.right);// TODO: implement
+    if (candidate -> right!=NULL)
+        return tree_maximum(candidate -> right);// TODO: implement
     return candidate;
 }
 
 void tree_delete(int value) {
-   int candidate=tree_search(root, value);
-      if (candidate.left == NULL && candidate.right == NULL)
+   struct node *candidate=tree_search(&root, value);
+      if (candidate -> left == NULL && candidate -> right == NULL)
         *candidate = NULL;
-    else if (candidate.left != NULL && candidate.right == NULL)
+    else if (candidate -> left != NULL && candidate -> right == NULL)
         *candidate = candidate->left;
-    else if (candidate.left == NULL && candidate.right != NULL)
+    else if (candidate -> left == NULL && candidate -> right != NULL)
         *candidate = candidate->right;
     else
     {
-        maxcandidate = tree_maximum(candidate.left);
-        candidate.key = maxcandidate->key;
-        *maxcandidate = maxcandidate->left;
+        maxcandidate = tree_maximum(candidate -> left);
+        candidate -> key = maxcandidate -> key;
+        *maxcandidate = maxcandidate -> left;
     }
        // TODO: implement
     
@@ -62,23 +65,23 @@ void tree_delete(int value) {
 
 unsigned int tree_size(struct node *element) {
     int size = 0;
-    if (element.right == NULL && element.left == NULL)
+    if (element -> right == NULL && element -> left == NULL)
         break;
-    else if (element.right == NULL && element.left != NULL)
+    else if (element-> right == NULL && element -> left != NULL)
     {
         element = element->left;
         size++;
     }
-    else if (element.right != NULL && element.left == NULL)
+    else if (element -> right != NULL && element -> left == NULL)
     {
-        element = element->right;
+        element = element -> right;
         size++;
     }
     else
     {
-        element = tree_size(element.left);
+        element = tree_size(element -> left);
         size++;
-        element = tree_size(emenet.right);
+        element = tree_size(emenet -> right);
         size++;
     }// TODO: implement
     return size;
