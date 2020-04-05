@@ -78,8 +78,10 @@ unsigned int tree_size(struct node *element) {
     {
         element = tree_size(element.left);
         size++;
+        element = tree_size(emenet.right);
+        size++;
     }// TODO: implement
-    return 0;
+    return size;
 }
 
 /*
