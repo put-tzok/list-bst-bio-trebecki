@@ -18,7 +18,22 @@ struct node *head = NULL;
 
 struct node* list_insert(int value) {
     
-    head=createNode (key=value, next=head);
+    if(head != NULL)
+    {
+        while(head ->next != NULL)
+            head = head -> next;
+      struct node *newnode = (struct node *) malloc( sizeof(struct node) );
+      newnode -> key = value;
+      newnode -> next = NULL;
+      head -> next = newnode;
+    }
+    else
+    {
+    struct node *newnode = (struct node *) malloc( sizeof(struct node) );
+    newnode -> key = value;
+    newnode -> next = NULL;
+    head = newnode;
+    }
     
 
     
@@ -29,18 +44,19 @@ struct node* list_insert(int value) {
 
 struct node* list_search(int value) {
     iter=head;
-    if(iter==NULL)
-       cout<<"lista pusta"<<endl;
+    if(head==NULL)
+    printf("Lista pusta");
+    
     else
     {
-    while (iter.key=!value)
+    while (head -> key =! value)
     {
-     iter = iter -> next;
+     head = head -> next;
      
     }
         
     // TODO: implement
-    return iter.key;
+    return head -> key;
     }
 
 void list_delete(int value) {
@@ -48,8 +64,8 @@ void list_delete(int value) {
     if (head == value)
         head=head->next;
     else{
-     prev=head;
-     iter=head->next;
+     struct node *prev = head;
+     struct node *iter = head -> next;
         
      while(iter!=NULL && iter!=value)
      {
@@ -63,7 +79,7 @@ void list_delete(int value) {
 
 unsigned int list_size() {
     int size=0;
-    int iter=head;
+    struct node *iter=head;
     while(iter!=NULL)
     
     {
