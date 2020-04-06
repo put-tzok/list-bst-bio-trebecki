@@ -87,6 +87,7 @@ unsigned int tree_size(struct node *element) {
     return size;
 }
 
+
 /*
  * Fill an array with increasing values.
  *
@@ -116,6 +117,24 @@ void shuffle(int *t, int n) {
     }
 }
 
+ void tree_insert_biject(int t, int p, int r)
+ {
+     if(p = r)
+         tree_insert(t[p]);
+     if(r - p = 1)
+     {
+         tree_insert(t[p]);
+         tree_insert(t[r]);
+     }
+     else
+     {
+        int  q = p + (r - p)/2;
+        tree_insert(t[q]);
+        tree_insert_biject(t, p, q-1);
+        tree_insert_biject(t, q+1, r);
+     }
+  }
+     
 /*
  * Check if tree is a valid BST.
  *
@@ -163,10 +182,13 @@ void insert_random(int *t, int n) {
 }
 
 void insert_binary(int *t, int n) {
+    int tab[n];
     for (int i = 0; i < n; i++)
     {
-        
+        tab[i]=i;
     }// TODO: implement
+    sort(tab);
+    tree_insert_biject(tab, 0, i-1);
 }
 
 char *insert_names[] = { "Increasing", "Random", "Binary" };
