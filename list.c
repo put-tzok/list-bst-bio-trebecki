@@ -49,7 +49,7 @@ struct node* list_search(int value) {
     
     else
     {
-    while (head -> key =! value)
+    while (head -> key != value)
     {
      head = head -> next;
      
